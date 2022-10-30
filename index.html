@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Maze-Draw</title>
+</head>
+<body onload="init()">
+    <div class="container">
+        <div id="game-field"></div>
+        <div class="button-container" id="build">
+            <button id="button-tile" class="build-btn" onclick="handleBuildBtn(0)">Tile</button>
+            <button id="button-start" class="build-btn" onclick="handleBuildBtn(1)">Start</button>
+            <button id="button-end" class="build-btn"  onclick="handleBuildBtn(2)">End</button>
+            <button id="button-empty" class="build-btn"  onclick="handleBuildBtn(3)">Wall</button>
+        </div>
+        <div class="button-container">
+            <button id="button-dijkstra" onclick="handleBFSBtnClick()">BFS</button>
+            <button id="button-restart" onclick="window.location.reload()">Restart</button>
+        </div>
+        <p id="winning-container">
+            Winner!
+        </p>
+    </div>
+</body>
+<script src="index.js"></script>
+</html>
