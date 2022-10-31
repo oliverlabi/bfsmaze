@@ -1,6 +1,7 @@
 const gameFieldDOM = document.getElementById('game-field');
 const buildBtnContainerDOM = document.getElementById('build')
 const buildBtnDOM = buildBtnContainerDOM.getElementsByClassName('build-btn')
+const pathDistanceDOM = document.getElementById('path-distance-value');
 
 const fieldHeight = 8;
 const fieldWidth = 18;
@@ -106,6 +107,7 @@ class Graph {
 
 let fullGameField = Array(fieldHeight).fill(emptyChar).map(()=>Array(fieldWidth).fill(emptyChar));
 
+let pathDistance;
 let pathArray;
 
 let graphObj = new Graph();
@@ -255,6 +257,8 @@ function drawMap(){
 
 function clearPreviousPath() {
     if(pathArray){
+        pathDistance = 0;
+        pathDistanceDOM.innerHTML = pathDistance;
         pathArray.forEach((path) => {
             const iterators = path.split('-');
             const pathSpotOnDOM = document.querySelector('#row' + iterators[0] + ' #column' + iterators[1]);
@@ -285,7 +289,9 @@ function handleBFSBtnClick(){
 }
 
 function drawPath(bfsPath){
-    pathArray = bfsPath.path.split(',')
+    pathDistance = bfsPath.distance;
+    pathDistanceDOM.innerHTML = pathDistance;
+    pathArray = bfsPath.path.split(',');
     pathArray.pop();
     pathArray.shift();
     pathArray.forEach((path) => {
