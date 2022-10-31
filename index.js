@@ -126,11 +126,11 @@ let endCoordinates = {
 let currentActiveButtonChar;
 
 function initialRender(){
-    for(let i = 0; i < fieldHeight; i++){
+    for(let i = 1; i < fieldHeight; i++){
         let gridRow = document.createElement('div');
         gridRow.setAttribute('class', 'fieldRow');
         gridRow.id = 'row' + i;
-        for(let j = 0; j < fieldWidth; j++){
+        for(let j = 1; j < fieldWidth; j++){
             let gridColumn = document.createElement('button');
             gridColumn.setAttribute('class', 'fieldColumn');
             gridColumn.setAttribute('onclick', `handleClickOnGrid(${i}, ${j})`);
@@ -252,7 +252,7 @@ function handleClickOnGrid(x, y){
 }
 
 function drawMap(){
-    new Grid(16, 6, 1, 1);
+    new Grid(15, 5, 2, 2);
 }
 
 function clearPreviousPath() {
